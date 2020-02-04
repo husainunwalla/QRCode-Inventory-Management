@@ -49,11 +49,6 @@ public class Scan extends AppCompatActivity {
         nameTextView = findViewById(R.id.nameTextView);
         dateTextView = findViewById(R.id.priceTextView);
 
-
-
-
-
-
         btnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
