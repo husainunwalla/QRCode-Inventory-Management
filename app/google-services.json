@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "714337482268",
+    "firebase_url": "https://qr-code-inventory-managenent.firebaseio.com",
+    "project_id": "qr-code-inventory-managenent",
+    "storage_bucket": "qr-code-inventory-managenent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714337482268:android:23bd3cdaa439f2453591d9",
+        "android_client_info": {
+          "package_name": "com.example.enamul.qrcode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714337482268-1dtor44tvb0vpksscv2cbfu62rb5g5ha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.enamul.qrcode",
+            "certificate_hash": "7be7c327cc24b03e27c5f44cd8f1c05a36037320"
+          }
+        },
+        {
+          "client_id": "714337482268-i5mjh8sqbeg72s127sf2165db1covbf5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQMExG2Wz_xkStUCheDOWjvs3Xuj_mmQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714337482268-i5mjh8sqbeg72s127sf2165db1covbf5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
