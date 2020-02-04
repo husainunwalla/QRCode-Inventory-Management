@@ -28,9 +28,6 @@ public class Scan extends AppCompatActivity {
     Thread thread ;
     public final static int QRcodeWidth = 350 ;
 
-
-
-
     TextView scanTextView, nameTextView, dateTextView;
 
     @Override
@@ -64,12 +61,6 @@ public class Scan extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

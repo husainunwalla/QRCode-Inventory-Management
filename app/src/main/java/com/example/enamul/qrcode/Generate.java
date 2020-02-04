@@ -76,9 +76,6 @@ public class Generate extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-                //databaseReference.child("id").setValue(Integer.parseInt(idEditText.toString()) + 1);
-
                 if(!idEditText.getText().toString().isEmpty()){
                     idString = idEditText.getText().toString();
 
