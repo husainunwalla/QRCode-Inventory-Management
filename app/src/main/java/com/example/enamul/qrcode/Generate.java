@@ -31,7 +31,7 @@ public class Generate extends AppCompatActivity {
     Thread thread ;
     public final static int QRcodeWidth = 350 ;
     Bitmap bitmap ;
-
+//comment
     int ID = 0;
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("inventory");
