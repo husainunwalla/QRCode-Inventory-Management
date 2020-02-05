@@ -54,27 +54,13 @@ public class Generate extends AppCompatActivity {
         nameEditText = findViewById(R.id.nameEditText);
         priceEditText = findViewById(R.id.priceEditText);
 
-
-
-
-        databaseReference.child("id").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                idEditText.setText(dataSnapshot.getValue().toString());
-                databaseReference.child("id").setValue(Integer.valueOf(Integer.parseInt(dataSnapshot.getValue().toString()) + 1));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
+        idStuff();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
 
                 if(!idEditText.getText().toString().isEmpty()){
                     idString = idEditText.getText().toString();
@@ -95,6 +81,8 @@ public class Generate extends AppCompatActivity {
                     idEditText.requestFocus();
                     Toast.makeText(Generate.this, "Please Enter Your Scanned Test" , Toast.LENGTH_LONG).show();
                 }
+
+                idStuff();
 
             }
         });
@@ -136,6 +124,22 @@ public class Generate extends AppCompatActivity {
 
         bitmap.setPixels(pixels, 0, 350, 0, 0, bitMatrixWidth, bitMatrixHeight);
         return bitmap;
+    }
+
+    public void idStuff(){
+        databaseReference.child("id").getRef().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                idEditText.setText(dataSnapshot.getValue().toString());
+                databaseReference.child("id").setValue(Integer.valueOf(Integer.parseInt(dataSnapshot.getValue().toString()) + 1));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
 
