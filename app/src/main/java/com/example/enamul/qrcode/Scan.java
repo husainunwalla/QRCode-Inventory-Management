@@ -27,7 +27,7 @@ public class Scan extends AppCompatActivity {
     Thread thread ;
     public final static int QRcodeWidth = 350 ;
 
-    TextView scanTextView, nameTextView, dateTextView;
+    TextView scanTextView, nameTextView, priceTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +42,15 @@ public class Scan extends AppCompatActivity {
         btnScan = (Button)findViewById(R.id.btnScan);
         scanTextView = (TextView) findViewById(R.id.scanTextView);
         nameTextView = findViewById(R.id.nameTextView);
-        dateTextView = findViewById(R.id.priceTextView);
+        priceTextView = findViewById(R.id.priceTextView);
+
 
         btnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                nameTextView.setText("Loading...");
+                priceTextView.setText("Loading...");
 
                 IntentIntegrator integrator = new IntentIntegrator(Scan.this);
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
@@ -95,7 +99,7 @@ public class Scan extends AppCompatActivity {
                 databaseReferene1.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        dateTextView.setText(dataSnapshot.getValue().toString() + "$");
+                        priceTextView.setText(dataSnapshot.getValue().toString() + "$");
                     }
 
                     @Override

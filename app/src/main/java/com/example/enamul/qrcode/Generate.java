@@ -51,6 +51,7 @@ public class Generate extends AppCompatActivity {
         priceEditText = findViewById(R.id.priceEditText);
         addAgainButton = findViewById(R.id.addButton);
 
+        idEditText.setText("Loading...");
         idRefresh();
 
         createButton.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +60,7 @@ public class Generate extends AppCompatActivity {
 
                 nameEditText.setFocusable(false);
                 priceEditText.setFocusable(false);
+
 
 
                 if(!idEditText.getText().toString().isEmpty()){
@@ -142,6 +144,7 @@ public class Generate extends AppCompatActivity {
     }
 
     public void addAgain(View view){
+        idEditText.setText("Loading...");
         idRefresh();
         nameEditText.setFocusable(true);
         nameEditText.setFocusableInTouchMode(true);
