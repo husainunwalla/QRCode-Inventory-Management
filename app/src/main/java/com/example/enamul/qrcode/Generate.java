@@ -24,8 +24,7 @@ import static com.example.enamul.qrcode.R.drawable.ic_launcher_foreground;
 
 public class Generate extends AppCompatActivity {
     ImageView imageView;
-    Button button;
-    Button btnScan;
+    Button createButton, addAgainButton;
     EditText idEditText, priceEditText, nameEditText;
     String idString;
     Thread thread ;
@@ -43,23 +42,23 @@ public class Generate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate);
 
-        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-
         imageView = (ImageView)findViewById(R.id.imageView);
         idEditText = (EditText)findViewById(R.id.idEditText);
-        button = (Button)findViewById(R.id.button);
-        btnScan = (Button)findViewById(R.id.btnScan);
+        createButton = (Button)findViewById(R.id.createButton);
         imageView.setImageResource(ic_launcher_foreground);
         idEditText.setFocusable(false);
         nameEditText = findViewById(R.id.nameEditText);
         priceEditText = findViewById(R.id.priceEditText);
+        addAgainButton = findViewById(R.id.addButton);
 
-        idStuff();
+        idRefresh();
 
-        button.setOnClickListener(new View.OnClickListener() {
+        createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                nameEditText.setFocusable(false);
+                priceEditText.setFocusable(false);
 
 
                 if(!idEditText.getText().toString().isEmpty()){
@@ -81,8 +80,8 @@ public class Generate extends AppCompatActivity {
                     idEditText.requestFocus();
                     Toast.makeText(Generate.this, "Please Enter Your Scanned Test" , Toast.LENGTH_LONG).show();
                 }
-
-                idStuff();
+                addAgainButton.setVisibility(View.VISIBLE);
+                createButton.setVisibility(View.INVISIBLE);
 
             }
         });
@@ -126,7 +125,7 @@ public class Generate extends AppCompatActivity {
         return bitmap;
     }
 
-    public void idStuff(){
+    public void idRefresh(){
         databaseReference.child("id").getRef().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -140,6 +139,17 @@ public class Generate extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void addAgain(View view){
+        idRefresh();
+        nameEditText.setFocusable(true);
+        nameEditText.setFocusableInTouchMode(true);
+        priceEditText.setFocusable(true);
+        priceEditText.setFocusableInTouchMode(true);
+        createButton.setVisibility(View.VISIBLE);
+        addAgainButton.setVisibility(View.INVISIBLE);
+        imageView.setImageResource(ic_launcher_foreground);
     }
 
 

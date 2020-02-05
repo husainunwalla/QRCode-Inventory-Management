@@ -22,7 +22,6 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class Scan extends AppCompatActivity {
     ImageView imageView;
-    Button button;
     Button btnScan;
     EditText editText;
     Thread thread ;
@@ -40,7 +39,6 @@ public class Scan extends AppCompatActivity {
 
         imageView = (ImageView)findViewById(R.id.imageView);
         editText = (EditText)findViewById(R.id.idEditText);
-        button = (Button)findViewById(R.id.button);
         btnScan = (Button)findViewById(R.id.btnScan);
         scanTextView = (TextView) findViewById(R.id.scanTextView);
         nameTextView = findViewById(R.id.nameTextView);
