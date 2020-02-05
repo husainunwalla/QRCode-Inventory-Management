@@ -22,7 +22,7 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FFEBEE"
+            android:background="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintTop_toTopOf="parent">
@@ -71,7 +71,7 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#E8F5E9">
+            android:background="#FFFFFF">
 
             <TextView
                 android:id="@+id/genTextView"
