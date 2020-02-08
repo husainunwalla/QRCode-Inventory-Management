@@ -25,7 +25,6 @@ public class Scan extends AppCompatActivity {
     Button btnScan;
     EditText editText;
     Thread thread ;
-    public final static int QRcodeWidth = 350 ;
 
     TextView scanTextView, nameTextView, priceTextView;
 
@@ -33,9 +32,6 @@ public class Scan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
-
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-
 
         imageView = (ImageView)findViewById(R.id.imageView);
         editText = (EditText)findViewById(R.id.idEditText);
@@ -66,7 +62,7 @@ public class Scan extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        final IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
                 Log.e("Scan*******", "Cancelled scan");
@@ -75,13 +71,14 @@ public class Scan extends AppCompatActivity {
                 Log.e("Scan", "Scanned");
 
                 scanTextView.setText(result.getContents());
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("inventory").child(result.getContents()).child("name");
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("inventory");
 
 
-                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        nameTextView.setText(dataSnapshot.getValue().toString());
+                        nameTextView.setText(dataSnapshot.child(result.getContents().toString()).child("name").getValue().toString());
+                        priceTextView.setText(dataSnapshot.child(result.getContents().toString()).child("price").getValue().toString());
 
                     }
 
@@ -93,23 +90,7 @@ public class Scan extends AppCompatActivity {
                     }
                 });
 
-                DatabaseReference databaseReferene1 = FirebaseDatabase.getInstance().getReference("inventory").child(result.getContents()).child("price");
-
-
-                databaseReferene1.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        priceTextView.setText(dataSnapshot.getValue().toString() + "$");
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
-
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Scanned ID : " + result.getContents(), Toast.LENGTH_SHORT).show();
             }
         } else {
             // This is important, otherwise the result will not be passed to the fragment
