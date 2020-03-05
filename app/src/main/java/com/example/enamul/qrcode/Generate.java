@@ -1,5 +1,6 @@
 package com.example.enamul.qrcode;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -152,6 +153,11 @@ public class Generate extends AppCompatActivity {
         createButton.setVisibility(View.VISIBLE);
         addAgainButton.setVisibility(View.INVISIBLE);
         imageView.setImageResource(ic_launcher_foreground);
+    }
+
+    public void expand(View view){
+        Intent intent = new Intent(Generate.this, DIsplayQR.class);
+        startActivity(intent);
     }
 
 
