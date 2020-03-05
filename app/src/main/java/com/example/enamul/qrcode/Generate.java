@@ -27,11 +27,10 @@ public class Generate extends AppCompatActivity {
     Button createButton, addAgainButton;
     EditText idEditText, priceEditText, nameEditText;
     String idString;
-    Thread thread ;
     public final static int QRcodeWidth = 350 ;
     Bitmap bitmap ;
 
-    int ID = 0;
+
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("inventory");
 
