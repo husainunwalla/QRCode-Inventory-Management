@@ -21,7 +21,7 @@ public class DIsplayQR extends AppCompatActivity {
     Button createButton;
     EditText idEditText;
     String idString;
-    public final static int QRcodeWidth = 350 ;
+    public final static int QRcodeWidth = 400 ;
     Bitmap bitmap ;
 
     @Override
@@ -33,7 +33,7 @@ public class DIsplayQR extends AppCompatActivity {
         idEditText = (EditText)findViewById(R.id.idEditText);
         createButton = (Button)findViewById(R.id.createButton);
         imageView.setImageResource(ic_launcher_foreground);
-        idEditText.setFocusable(false);
+
 
 
 
@@ -97,7 +97,7 @@ public class DIsplayQR extends AppCompatActivity {
         }
         Bitmap bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight, Bitmap.Config.ARGB_4444);
 
-        bitmap.setPixels(pixels, 0, 350, 0, 0, bitMatrixWidth, bitMatrixHeight);
+        bitmap.setPixels(pixels, 0, 400, 0, 0, bitMatrixWidth, bitMatrixHeight);
         return bitmap;
     }
 }

@@ -29,6 +29,7 @@ public class Welcome extends AppCompatActivity {
 
         Button scan = findViewById(R.id.scanButton);
         Button generate = findViewById(R.id.generateButton);
+        Button display = findViewById(R.id.button);
 
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +45,14 @@ public class Welcome extends AppCompatActivity {
                 Intent intent = new Intent(Welcome.this, Generate.class);
                 startActivity(intent);
 
+            }
+        });
+
+        display.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Welcome.this, DIsplayQR.class);
+                startActivity(intent);
             }
         });
 
