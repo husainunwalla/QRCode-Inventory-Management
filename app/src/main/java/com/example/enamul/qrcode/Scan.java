@@ -28,6 +28,7 @@ public class Scan extends AppCompatActivity {
 
     TextView scanTextView, nameTextView, priceTextView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
