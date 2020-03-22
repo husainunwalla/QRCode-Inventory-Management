@@ -5,7 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="QRCodeWhiteColor">#ffffff</color>
-    <color name="Background">#EBEBEB</color>
+    <color name="Background">#80D8FF</color>
 
     <color name="QRCodeBlackColor">#000000</color>
 </resources>
