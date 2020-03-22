@@ -1,6 +1,14 @@
 package com.example.enamul.qrcode;
 
 public class Item {
+    public Item(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public Item() {
+    }
+
     public String getName() {
         return name;
     }

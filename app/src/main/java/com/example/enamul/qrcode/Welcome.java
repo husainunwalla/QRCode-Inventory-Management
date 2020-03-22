@@ -8,7 +8,6 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 
 public class Welcome extends AppCompatActivity {
 
@@ -29,7 +28,8 @@ public class Welcome extends AppCompatActivity {
 
         Button scan = findViewById(R.id.scanButton);
         Button generate = findViewById(R.id.generateButton);
-        Button display = findViewById(R.id.button);
+        Button display = findViewById(R.id.displayButton);
+        Button list = findViewById(R.id.listButton);
 
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,10 +51,19 @@ public class Welcome extends AppCompatActivity {
         display.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Welcome.this, DIsplayQR.class);
+                Intent intent = new Intent(Welcome.this, Generate.class);
                 startActivity(intent);
             }
         });
+
+        list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Welcome.this, ViewItems.class);
+                startActivity((intent));
+            }
+        });
+
 
 
     }
