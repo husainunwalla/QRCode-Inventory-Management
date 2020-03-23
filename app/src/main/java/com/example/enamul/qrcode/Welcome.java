@@ -11,15 +11,6 @@ import android.widget.Button;
 
 public class Welcome extends AppCompatActivity {
 
-    public void scan(View view){
-        Intent intent = new Intent(Welcome.this, Scan.class);
-        startActivity(intent);
-    }
-
-    public void generate(View view){
-        Intent intent = new Intent(Welcome.this, Generate.class);
-        startActivity(intent);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
