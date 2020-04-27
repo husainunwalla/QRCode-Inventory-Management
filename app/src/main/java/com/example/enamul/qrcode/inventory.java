@@ -15,7 +15,7 @@ public class inventory {
     }
 
     public  String toString(){
-        return this.name;
+        return this.name + " @" + this.price + "Rs";
     }
 
 }

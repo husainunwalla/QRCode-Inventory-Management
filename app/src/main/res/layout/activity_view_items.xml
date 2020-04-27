@@ -20,8 +20,11 @@
 
     <ListView
         android:id="@+id/listView"
+        style="@style/Widget.AppCompat.ListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#0084FFFF"
+        android:padding="10dp">
 
     </ListView>
 </android.support.constraint.ConstraintLayout>
