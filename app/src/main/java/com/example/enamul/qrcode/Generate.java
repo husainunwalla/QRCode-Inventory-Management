@@ -128,11 +128,11 @@ public class Generate extends AppCompatActivity {
     }
 
     public void idRefresh(){
-        databaseReference.child("id").getRef().addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.getParent().child("id").getRef().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 idEditText.setText(dataSnapshot.getValue().toString());
-                databaseReference.child("id").setValue(Integer.valueOf(Integer.parseInt(dataSnapshot.getValue().toString()) + 1));
+                databaseReference.getParent().child("id").setValue(Integer.valueOf(Integer.parseInt(dataSnapshot.getValue().toString()) + 1));
             }
 
             @Override

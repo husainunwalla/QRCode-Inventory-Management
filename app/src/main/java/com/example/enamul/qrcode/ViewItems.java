@@ -34,17 +34,19 @@ public class ViewItems extends AppCompatActivity {
         setContentView(R.layout.activity_view_items);
         databaseReference = FirebaseDatabase.getInstance().getReference("inventory");
         listView = findViewById(R.id.listView);
-        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, keyList );
-        listView.setAdapter(arrayAdapter);
+
+
         loadingText = findViewById(R.id.loadingTextView);
 
 
         databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                String value = dataSnapshot.getValue().toString();
+                String value = dataSnapshot.getValue(inventory.class).toString();
                 keyList.add(value);
-                arrayAdapter.notifyDataSetChanged();
+                arrayAdapter = new ArrayAdapter<String>(ViewItems.this, android.R.layout.simple_list_item_1, keyList );
+                listView.setAdapter(arrayAdapter);
+
             }
 
             @Override
