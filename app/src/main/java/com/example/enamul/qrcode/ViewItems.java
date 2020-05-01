@@ -1,10 +1,12 @@
 package com.example.enamul.qrcode;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,7 +27,7 @@ public class ViewItems extends AppCompatActivity {
     ArrayList<String> keyList = new ArrayList<>();
     ArrayList<String> nameList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
-    TextView loadingText;
+
 
 
     @Override
@@ -36,7 +38,7 @@ public class ViewItems extends AppCompatActivity {
         listView = findViewById(R.id.listView);
 
 
-        loadingText = findViewById(R.id.loadingTextView);
+
 
 
         databaseReference.addChildEventListener(new ChildEventListener() {
@@ -70,12 +72,20 @@ public class ViewItems extends AppCompatActivity {
             }
         });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ViewItems.this, ItemDetails.class);
+                intent.putExtra("position", position);
+                startActivity(intent);
+            }
+        });
 
 
 
 
 
-        loadingText.setVisibility(View.INVISIBLE);
+
 
     }
 }

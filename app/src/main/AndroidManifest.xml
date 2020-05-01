@@ -11,7 +11,8 @@
         android:roundIcon="@raw/blue"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewItems"></activity>
+        <activity android:name=".ItemDetails"></activity>
+        <activity android:name=".ViewItems" />
         <activity android:name=".DIsplayQR" />
         <activity
             android:name=".Generate"

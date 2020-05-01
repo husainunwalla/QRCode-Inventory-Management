@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Welcome extends AppCompatActivity {
 
@@ -22,6 +23,8 @@ public class Welcome extends AppCompatActivity {
         Button generate = findViewById(R.id.generateButton);
         Button display = findViewById(R.id.displayButton);
         Button list = findViewById(R.id.listButton);
+
+
 
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
