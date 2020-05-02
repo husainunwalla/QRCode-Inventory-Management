@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -27,7 +28,9 @@ public class ViewItems extends AppCompatActivity {
     ArrayList<String> keyList = new ArrayList<>();
     ArrayList<String> nameList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
-
+    ProgressBar progressBar;
+    TextView message;
+    int index;
 
 
     @Override
@@ -36,18 +39,21 @@ public class ViewItems extends AppCompatActivity {
         setContentView(R.layout.activity_view_items);
         databaseReference = FirebaseDatabase.getInstance().getReference("inventory");
         listView = findViewById(R.id.listView);
-
-
-
-
+        progressBar = findViewById(R.id.progressBar);
+        message = findViewById(R.id.messagetextView);
+        message.setVisibility(View.INVISIBLE);
 
         databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                String value = dataSnapshot.getValue(inventory.class).toString();
-                keyList.add(value);
+                String value = dataSnapshot.getValue(inventory.class).toString().toUpperCase();
+                index++;
+                keyList.add("\n" + Integer.toString(index) + ". " +value);
                 arrayAdapter = new ArrayAdapter<String>(ViewItems.this, android.R.layout.simple_list_item_1, keyList );
                 listView.setAdapter(arrayAdapter);
+
+                progressBar.setVisibility(View.INVISIBLE);
+                message.setVisibility(View.VISIBLE);
 
             }
 
@@ -71,6 +77,7 @@ public class ViewItems extends AppCompatActivity {
 
             }
         });
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
