@@ -16,14 +16,16 @@ public class ItemDetails extends AppCompatActivity {
 
     DatabaseReference databaseReference;
     String id;
-    TextView textView;
+    TextView nameTextViw, idTextView, priceTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_details);
 
-        textView = findViewById(R.id.textView);
+        nameTextViw = findViewById(R.id.nameTextView);
+        idTextView = findViewById(R.id.idTextView);
+        priceTextView = findViewById(R.id.priceTextView);
 
         int position = getIntent().getExtras().getInt("position");
         Toast.makeText(this, "Position "+Integer.toString(position), Toast.LENGTH_SHORT).show();
@@ -33,8 +35,10 @@ public class ItemDetails extends AppCompatActivity {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.child(id).child("name").getValue().toString();
-                textView.setText(name);
+                nameTextViw.setText("Product Name: " + dataSnapshot.child(id).child("name").getValue().toString());
+                priceTextView.setText("Price : RS " + dataSnapshot.child(id).child("price").getValue().toString());
+                idTextView.setText("Product ID: " + id);
+
             }
 
             @Override
