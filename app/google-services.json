@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "714337482268-s1ou57as0qmdftp3g4t24f7kg6648tmr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.enamul.qrcode",
+            "certificate_hash": "59070c6433dbe8c604f6edf817fb221635afa154"
+          }
+        },
+        {
           "client_id": "714337482268-1dtor44tvb0vpksscv2cbfu62rb5g5ha.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
