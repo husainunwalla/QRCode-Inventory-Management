@@ -60,8 +60,27 @@ public class Welcome extends AppCompatActivity {
         });
 
 
+    }
+    public void listView(View view){
+        Intent intent = new Intent(Welcome.this, ViewItems.class);
+        startActivity((intent));
 
+    }
 
+    public void displayQR(View view){
+        Intent intent = new Intent(Welcome.this, DIsplayQR.class);
+        startActivity(intent);
+
+    }
+
+    public void addInventory(View view){
+        Intent intent = new Intent(Welcome.this, Generate.class);
+        startActivity(intent);
+
+    }
+    public void scan(View view){
+        Intent intent = new Intent(Welcome.this, Scan.class);
+        startActivity(intent);
 
     }
 
