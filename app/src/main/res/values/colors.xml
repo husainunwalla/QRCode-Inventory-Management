@@ -6,6 +6,9 @@
 
     <color name="QRCodeWhiteColor">#ffffff</color>
     <color name="Background">#FF00B0FF</color>
+    <color name = "PrimaryRed">#FF1744</color>
+    <color name="DarkPrimaryRed">#c4001d</color>
+
 
     <color name="QRCodeBlackColor">#000000</color>
 </resources>
