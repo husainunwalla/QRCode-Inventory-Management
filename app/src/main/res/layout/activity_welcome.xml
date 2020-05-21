@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Background"
     tools:context=".Welcome">
 
     <ScrollView
@@ -12,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="200dp"
-        android:background="@drawable/rounded_button_green"
-        android:padding="15dp"
+        android:background="@drawable/rounded_scroll"
+        android:padding="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +22,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:background="#1DE9B6"
             android:divider="@drawable/divider8p"
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -206,10 +204,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="500dp"
-        android:background="@drawable/rounded_button_orange"
         android:padding="10dp"
         android:text="Welcome!"
-        android:textColor="#000000"
+        android:textColor="#FF1744"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
