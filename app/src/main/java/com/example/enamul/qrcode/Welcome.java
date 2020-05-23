@@ -19,45 +19,14 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Button scan = findViewById(R.id.scanButton);
-        Button generate = findViewById(R.id.generateButton);
-        Button display = findViewById(R.id.displayButton);
-        Button list = findViewById(R.id.listButton);
 
 
 
-        scan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Welcome.this, Scan.class);
-                startActivity(intent);
-            }
-        });
 
-        generate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Welcome.this, Generate.class);
-                startActivity(intent);
 
-            }
-        });
 
-        display.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Welcome.this, DIsplayQR.class);
-                startActivity(intent);
-            }
-        });
 
-        list.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Welcome.this, ViewItems.class);
-                startActivity((intent));
-            }
-        });
+
 
 
     }
