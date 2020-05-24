@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context="com.example.enamul.qrcode.Scan">
 
     <android.support.v7.widget.CardView
@@ -12,7 +13,7 @@
         android:layout_height="400dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        app:cardBackgroundColor="@color/primaryPurple"
+        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:cardMaxElevation="5dp"
@@ -36,7 +37,7 @@
                 android:layout_marginTop="200dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/rounded_button"
+                android:background="@drawable/rounded_button_complementary"
                 android:text="Scan Your QR Code"
                 android:textAllCaps="false"
                 android:textSize="16sp" />
@@ -46,9 +47,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="200dp"
+                android:background="@drawable/edit_text_bg"
+                android:padding="10dp"
                 android:text="ID : "
-                android:textColor="#FFFFFF"
-                android:textSize="25sp" />
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/priceTextView"
@@ -56,9 +59,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
                 android:layout_marginBottom="200dp"
+                android:background="@drawable/edit_text_bg"
+                android:padding="10dp"
                 android:text="Price:"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp" />
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/nameTextView"
@@ -66,9 +71,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="200dp"
+                android:background="@drawable/edit_text_bg"
+                android:padding="10dp"
                 android:text="Name:"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp" />
+                android:textColor="#000000"
+                android:textSize="18sp" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
@@ -77,11 +84,13 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="66dp"
-        android:layout_marginBottom="57dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="100dp"
+        android:fontFamily="@font/pacifico"
         android:padding="10dp"
-        android:text="TextView"
-        android:textSize="30sp"
+        android:text="QR Scanner"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

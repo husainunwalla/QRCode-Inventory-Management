@@ -17,7 +17,7 @@
         android:text="QRApp"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#ffffff"
+        android:textColor="@android:color/white"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,11 +47,21 @@
             android:layout_height="match_parent"
             android:background="#00D500F9">
 
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pacifico"
+                android:text="Login"
+                android:textAlignment="center"
+                android:textColor="@color/primaryPurpleDark"
+                android:textSize="40sp" />
+
             <EditText
                 android:id="@+id/userNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="75dp"
+                android:layout_marginTop="100dp"
                 android:background="@drawable/edit_text_bg"
                 android:drawableLeft="@drawable/baseline_email_black_24dp"
                 android:ems="10"
@@ -65,7 +75,7 @@
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="175dp"
                 android:background="@drawable/edit_text_bg"
                 android:backgroundTint="@color/primaryPurple"
                 android:backgroundTintMode="add"
@@ -86,9 +96,10 @@
                 android:layout_marginTop="250sp"
                 android:layout_marginEnd="0sp"
                 android:layout_marginBottom="0sp"
-                android:background="@drawable/rounded_button_primary"
+                android:background="@drawable/rounded_button_complementary"
                 android:text="Login"
-                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textColor="#000000"
                 android:textSize="25sp" />
         </RelativeLayout>
 
