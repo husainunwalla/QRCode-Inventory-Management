@@ -1,8 +1,16 @@
 package com.example.enamul.qrcode;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,13 +32,34 @@ import com.google.zxing.common.BitMatrix;
 import static com.example.enamul.qrcode.R.drawable.ic_launcher_foreground;
 
 public class Generate extends AppCompatActivity {
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == 1) {
+
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+
+                }
+
+
+            }
+
+        }
+    }
+
     ImageView imageView;
     Button createButton, addAgainButton;
-    EditText idEditText, priceEditText, nameEditText;
+    EditText idEditText, priceEditText, nameEditText, locationText;
     String idString;
-    public final static int QRcodeWidth = 350 ;
-    Bitmap bitmap ;
-
+    public final static int QRcodeWidth = 350;
+    Bitmap bitmap;
+    LocationManager locationManager;
+    LocationListener locationListener;
 
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("inventory");
@@ -42,17 +71,50 @@ public class Generate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate);
 
-        imageView = (ImageView)findViewById(R.id.imageView);
-        idEditText = (EditText)findViewById(R.id.idEditText);
-        createButton = (Button)findViewById(R.id.createButton);
+        imageView = (ImageView) findViewById(R.id.imageView);
+        idEditText = (EditText) findViewById(R.id.idEditText);
+        createButton = (Button) findViewById(R.id.createButton);
         imageView.setImageResource(ic_launcher_foreground);
         idEditText.setFocusable(false);
         nameEditText = findViewById(R.id.nameEditText);
         priceEditText = findViewById(R.id.priceEditText);
         addAgainButton = findViewById(R.id.addButton);
+        locationText = findViewById(R.id.locationText);
 
         idEditText.setText("Loading...");
         idRefresh();
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                locationText.setText(Double.toString(location.getLatitude()));
+
+            }
+
+            @Override
+            public void onStatusChanged(String s, int i, Bundle bundle) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String s) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String s) {
+
+            }
+        };
+
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+
+        }
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
+
+
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,6 +221,10 @@ public class Generate extends AppCompatActivity {
         Intent intent = new Intent(Generate.this, DIsplayQR.class);
         startActivity(intent);
     }
+
+
+
+
 
 
 
