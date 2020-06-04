@@ -1,14 +1,15 @@
 package com.example.enamul.qrcode;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -16,16 +17,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class Login extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     EditText emailEditText, passwordEditText;
     Button loginButton;
+    ProgressBar progressBar;
+    TextView titleText, errorText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +35,19 @@ public class Login extends AppCompatActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         mAuth = FirebaseAuth.getInstance();
         loginButton = findViewById(R.id.loginButton);
+        progressBar = findViewById(R.id.progressBarLogin);
+        titleText = findViewById(R.id.textViewTitle);
+        errorText = findViewById(R.id.textViewError);
+
+        progressBar.setVisibility(View.INVISIBLE);
+        errorText.setVisibility(View.INVISIBLE);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
+                titleText.setVisibility(View.INVISIBLE);
+                errorText.setVisibility(View.INVISIBLE);
                 login();
             }
         });
@@ -66,6 +74,9 @@ public class Login extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(Login.this, "Authentication failed.",  Toast.LENGTH_SHORT).show();
+                            errorText.setVisibility(View.VISIBLE);
+                            progressBar.setVisibility(View.INVISIBLE);
+                            titleText.setVisibility(View.VISIBLE);
                         }
                     }
                 });

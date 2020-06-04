@@ -1,14 +1,15 @@
 package com.example.enamul.qrcode;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,11 +23,12 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class Scan extends AppCompatActivity {
     ImageView imageView;
-    Button btnScan;
+    Button btnScan, mapButotn;
     EditText editText;
     Thread thread ;
-
-    TextView scanTextView, nameTextView, priceTextView;
+    double lat, lng;
+    TextView scanTextView, nameTextView, priceTextView, locationTextView;
+    ProgressBar progressBarScan;
 
 
     @Override
@@ -40,6 +42,12 @@ public class Scan extends AppCompatActivity {
         scanTextView = (TextView) findViewById(R.id.scanTextView);
         nameTextView = findViewById(R.id.nameTextView);
         priceTextView = findViewById(R.id.priceTextView);
+        mapButotn = findViewById(R.id.mapButton);
+        progressBarScan = findViewById(R.id.progressBarScan);
+        locationTextView = findViewById(R.id.loactionTextView);
+
+        mapButotn.setVisibility(View.INVISIBLE);
+        progressBarScan.setVisibility(View.INVISIBLE);
 
 
         btnScan.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +56,7 @@ public class Scan extends AppCompatActivity {
 
                 nameTextView.setText("Loading...");
                 priceTextView.setText("Loading...");
+                progressBarScan.setVisibility(View.VISIBLE);
 
                 IntentIntegrator integrator = new IntentIntegrator(Scan.this);
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
@@ -57,6 +66,16 @@ public class Scan extends AppCompatActivity {
                 integrator.setBarcodeImageEnabled(false);
                 integrator.initiateScan();
 
+            }
+        });
+
+        mapButotn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Scan.this, MapsActivity.class);
+                intent.putExtra("lat", Double.toString(lat));
+                intent.putExtra("lng", Double.toString(lng));
+                startActivity(intent);
             }
         });
     }
@@ -74,13 +93,16 @@ public class Scan extends AppCompatActivity {
                 scanTextView.setText(result.getContents());
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("inventory");
 
-
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         nameTextView.setText(dataSnapshot.child(result.getContents().toString()).child("name").getValue().toString());
                         priceTextView.setText(dataSnapshot.child(result.getContents().toString()).child("price").getValue().toString());
-
+                        lat = (Double) dataSnapshot.child(result.getContents().toString()).child("lat").getValue();
+                        lng = (Double) dataSnapshot.child(result.getContents().toString()).child("long").getValue();
+                        locationTextView.setText("Lat: " + Double.toString(lat) + "Lng: " + Double.toString(lng));
+                        mapButotn.setVisibility(View.VISIBLE);
+                        progressBarScan.setVisibility(View.INVISIBLE);
                     }
 
                     @Override

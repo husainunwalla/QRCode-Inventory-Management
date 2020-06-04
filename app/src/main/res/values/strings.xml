@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">QRCode</string>
+    <string name="app_name">StoQR</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

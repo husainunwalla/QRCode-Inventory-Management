@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -41,7 +41,7 @@
             android:padding="35dp"
             android:showDividers="middle">
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/listCardView"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -49,7 +49,7 @@
                 android:onClick="listView"
                 app:cardCornerRadius="10dp">
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#FFFFFF">
@@ -94,11 +94,11 @@
                         app:layout_constraintStart_toEndOf="@+id/imageView2"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.426" />
-                </android.support.constraint.ConstraintLayout>
-            </android.support.v7.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/createCardView"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -106,7 +106,7 @@
                 android:onClick="addInventory"
                 app:cardCornerRadius="10dp">
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#FFFFFF">
@@ -117,7 +117,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
                         android:padding="10dp"
-                        android:text="View all the inventory items"
+                        android:text="Add a new item to the inventory"
                         android:textAlignment="viewStart"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -141,7 +141,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:text="Create"
+                        android:text="Add Item"
                         android:textAlignment="viewStart"
                         android:textColor="@android:color/black"
                         android:textSize="30sp"
@@ -150,10 +150,10 @@
                         app:layout_constraintStart_toEndOf="@+id/imageView5"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                </android.support.constraint.ConstraintLayout>
-            </android.support.v7.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/scanCardView"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -161,7 +161,7 @@
                 android:onClick="scan"
                 app:cardCornerRadius="10dp">
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#FFFFFF"
@@ -175,7 +175,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
                         android:padding="10dp"
-                        android:text="View all the inventory items"
+                        android:text="Scan a QR code to view item details"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -198,17 +198,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:text="Sacn"
+                        android:text="Scan"
                         android:textColor="@android:color/black"
                         android:textSize="30sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageView6"
                         app:layout_constraintTop_toTopOf="parent" />
-                </android.support.constraint.ConstraintLayout>
-            </android.support.v7.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/displayCardView"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -216,7 +216,7 @@
                 android:onClick="displayQR"
                 app:cardCornerRadius="10dp">
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -226,7 +226,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
                         android:padding="10dp"
-                        android:text="View all the inventory items"
+                        android:text="Generate a QR code"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -248,15 +248,15 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:text="Display"
+                        android:text="Generate QR"
                         android:textColor="@android:color/black"
                         android:textSize="30sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageView4"
                         app:layout_constraintTop_toTopOf="parent" />
-                </android.support.constraint.ConstraintLayout>
-            </android.support.v7.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
 
@@ -278,4 +278,4 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
