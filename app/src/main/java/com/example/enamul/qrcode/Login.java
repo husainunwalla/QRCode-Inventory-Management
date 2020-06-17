@@ -56,6 +56,9 @@ public class Login extends AppCompatActivity {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if (i == KeyEvent.KEYCODE_ENTER)
+                    progressBar.setVisibility(View.VISIBLE);
+                    titleText.setVisibility(View.INVISIBLE);
+                    errorText.setVisibility(View.INVISIBLE);
                     login();
 
                 return false;

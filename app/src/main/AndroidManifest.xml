@@ -13,9 +13,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/bluegreen"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@raw/blue"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
